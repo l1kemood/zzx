@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.black_overlay {
+				display: none;
+				/* 此元素不会被显示*/
+				position: absolute;
+				top: 0%;
+				left: 0%;
+				width: 100%;
+				height: 100%;
+				background-color: #bbbbbb;
+				z-index: 1001;
+				/* z-index 属性设置元素的堆叠顺序。*/
+				opacity: .80;
+				/* opacity 属性设置元素的不透明级别。*/
+			}
+
+			.white_content {
+				display: none;
+				position: absolute;
+				top: 20%;
+				border: 1px solid #bbbbbb;
+				border-radius: 20px;
+				background-color: white;
+				z-index: 1002;
+				/*层级要比.black_overlay高，这样才能显示在它前面*/
+				overflow: auto;
+			}
+
+			#light {
+				position: absolute;
+				left: 50%;
+				/* top: 50%; */
+				width: 450px;
+				height: 450px;
+				margin-left: -150px;
+				/* margin-top: -125px */;
+			}
+
+			#form_submit {
+				text-align: center;
+				margin-left: 15px;
+				margin-top: 15px;
+			}
+
+			#font_renew {
+				font-weight: 400;
+				font-size: 24px;
+				color: #BBBBBB;
+				text-align: center;
+				margin-top: 20px;
+			}
+
+			.button_beautiful {
+				width: 60px;
+				height: 34px;
+				/* 高度 */
+				border-width: 0px;
+				border-radius: 6px;
+				background: #4ECDC4;
+				cursor: pointer;
+				outline: none;
+				color: white;
+				font-size: 16px;
+				margin-top: 20px;
+			}
+		</style>
+</head>
+
+<body>
+    <p>示例弹出页：
+        <a href="javascript:void(0)" onclick="document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">
+            Renew
+        </a>
+    </p>
+    <div id="light" class="white_content">
+        <div id="font_renew">Renew Edit</div>
+        <!-- 弹窗代码 -->
+        <form action="" method="post" id="form_submit">
+            Increase usage: <input type="text"> [Times] 
+			<br><br>
+            <!-- pull down list box -->
+            Extend the schedule: <select name="Extend the schedule">
+                <option value=""></option>
+                <option value="1">1 month</option>
+                <option value="2">3 months</option>
+                <option value="3">half a year</option>
+                <option value="4">1 year</option>
+                <option value="5">3 years</option>
+            </select> 
+			<br><br>
+            Mode of payment: <select name="Mode of payment">
+                <option value=""></option>
+                <option value="1">WeChat Pay</option>
+                <option value="2">Alipay</option>
+                <option value="3">Bank Payment</option>
+                <option value="4">Offline Payment</option>
+            </select> 
+			<br><br>
+            Remarks <textarea name="Remarks" cols="30" rows="10"></textarea> 
+			<br><br>
+            <input type="hidden" name="id" value="1">
+    
+            <!-- list button -->
+            <input type="reset" value="Reset" class="button_beautiful">
+            <input type="submit" value="OK" class="button_beautiful">
+            <input type="button" value="Cancel" class="button_beautiful" onclick="document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'" />
+            <br>
+        </form>
+    </div>
+    <div id="fade" class="black_overlay"></div>
+</body>
+
+</html>

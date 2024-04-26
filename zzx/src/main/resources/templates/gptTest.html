@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Information</title>
+    <style>
+        /* Add your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .user-info {
+            margin: 20px;
+        }
+        .program-info {
+            margin-top: 20px;
+        }
+        .refresh-tip {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="user-info">
+        <!-- User Avatar -->
+        <img src="user-avatar.jpg" alt="User Avatar" id="userAvatar">
+        
+        <!-- User Name -->
+        <h2 id="userName">User Name</h2>
+        
+        <!-- Member's Information -->
+        <p id="phoneNumber">Phone Number: </p>
+    </div>
+    
+    <!-- Program Record -->
+    <div class="program-info">
+        <h3>Program Record</h3>
+        
+        <!-- Plan Level -->
+        <p>Plan Level: <span id="planLevel">-</span></p>
+        
+        <!-- Plan Start and Expiration Time -->
+        <p>Start Time: <span id="startTime">-</span></p>
+        <p>Expiration Time: <span id="expirationTime">-</span></p>
+        
+        <!-- Number of Times Left -->
+        <p>Times Left: <span id="timesLeft">-</span></p>
+        
+        <!-- Plan Status -->
+        <p>Status: <span id="planStatus">-</span></p>
+        
+        <!-- Payment Amount -->
+        <p>Payment Amount: <span id="paymentAmount">-</span></p>
+        
+        <!-- Refresh Tip -->
+        <p class="refresh-tip" id="refreshTip"></p>
+    </div>
+
+    <script>
+        // Simulated data from the database
+        const userData = {
+            userName: "John Doe",
+            phoneNumber: "123-456-7890"
+        };
+
+        const programData = {
+            planLevel: "Gold",
+            startTime: "2024-01-01",
+            expirationTime: "2024-12-31",
+            timesLeft: 10,
+            planStatus: "Normal",
+            paymentAmount: "$100"
+        };
+
+        // Function to display user and program information
+        function displayUserInfo() {
+            document.getElementById("userName").innerText = userData.userName;
+            document.getElementById("phoneNumber").innerText += userData.phoneNumber;
+
+            document.getElementById("planLevel").innerText = programData.planLevel;
+            document.getElementById("startTime").innerText = programData.startTime;
+            document.getElementById("expirationTime").innerText = programData.expirationTime;
+            document.getElementById("timesLeft").innerText = programData.timesLeft;
+            document.getElementById("planStatus").innerText = programData.planStatus;
+            document.getElementById("paymentAmount").innerText = programData.paymentAmount;
+
+            document.getElementById("refreshTip").innerText = "Data updated. Please refresh to view the new data.";
+        }
+
+        // Call the function to display user and program information
+        displayUserInfo();
+    </script>
+</body>
+</html>

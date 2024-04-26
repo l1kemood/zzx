@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Members</title>
+</head>
+<body>
+<h2>Search Members</h2>
+
+<!-- Search Form -->
+<form action="#" th:action="@{/name}" method="get">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required />
+    <button type="submit">Search</button>
+</form>
+
+<!-- Display Search Results -->
+<div th:if="${members != null and not #lists.isEmpty(members)}">
+    <h3>Search Results:</h3>
+    <table border="1">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Fitness Plan</th>
+            <th>Status</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="member : ${members}">
+            <td th:text="${member.id}"></td>
+            <td th:text="${member.name}"></td>
+            <td th:text="${member.phone}"></td>
+            <td th:text="${member.fitnessPlan}"></td>
+            <td th:text="${member.status}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- Display Message if no results found -->
+<div th:if="${members != null and #lists.isEmpty(members)}">
+    <p>No members found with the given name.</p>
+</div>
+</body>
+</html>

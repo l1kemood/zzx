@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add New Memebr</title>
+</head>
+<body>
+<h1>Add Add New Memebr</h1>
+<form method="post" th:action="@{/api/members/add_member}" th:object="${member}">
+    Id:<input type="number" th:field="*{id}"/><br/>
+    Name: <input type="text" th:field="*{name}"/><br/>
+    Phone: <input type="number" th:field="*phone"><br/>
+    FitnessPlan: <input type="text" th:field="*fitnessplan"><br/>
+    Status: <input type="number" th:field="*status"><br/>
+    <input type="submit" value="add">
+</form>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Fitness Plan Type</title>
+</head>
+<body>
+<div class="container">
+  <!-- Display Member List -->
+  <div th:if="${fitnessPlanType != null and not #lists.isEmpty(fitnessPlanType)}">
+    <h3>All FPTypes:</h3>
+    <table border="1">
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="fitnessPlanType: ${fitnessPlanType}">
+        <td th:text="*{fitnessPlanType.id}"></td>
+        <td th:text="*{fitnessPlanType.name}"></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</body>
+</html>

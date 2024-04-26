@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>back office management system page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            height: 100vh;
+        }
+
+        .sidebar {
+            flex: 0 0 250px;
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin-bottom: 10px;
+        }
+
+        .sidebar ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .content {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .content h2 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        .content p {
+            color: #666;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table th, table td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        table th {
+            background-color: #333;
+            color: #fff;
+        }
+
+        table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .search-container {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .search-container input[type="text"] {
+            padding: 10px;
+            margin-right: 10px;
+        }
+
+        .search-container button {
+            padding: 10px 15px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <ul>
+                <li><a href="#">MEMBER LIST</a></li>
+                <li><a href="#">FITNESS PLAN</a></li>
+                <li><a href="#">TRAINER LIST</a></li>
+                <li><a href="#">SETTING</a></li>
+            </ul>
+        </div>
+        <div class="content">
+            <div class="search-container" style="display: none;">
+                <input type="text" id="searchId" placeholder="Search ID">
+                <input type="text" id="searchPhone" placeholder="Search Phone Number">
+                <input type="text" id="searchTime" placeholder="Search Time">
+                <button id="searchButton">Search</button>
+            </div>
+
+            <!-- Member List Table -->
+            <table id="memberListTable" style="display: none;">
+                <thead>
+                    <tr>
+                        <th>NAME</th>
+                        <th>PHONE</th>
+                        <th>FITNESS PLAN</th>
+                        <th>TRAINER</th>
+                        <th>ACCOUNT ENABLE STATUS</th>
+                        <th>ACTION</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Sample data -->
+                    <tr>
+                        <td>John Doe</td>
+                        <td>123-456-7890</td>
+                        <td>Basic Plan</td>
+                        <td>Jane Trainer</td>
+                        <td>Enabled</td>
+                        <td><button>Edit</button></td>
+                    </tr>
+                    <tr>
+                        <td>Jane Doe</td>
+                        <td>987-654-3210</td>
+                        <td>Premium Plan</td>
+                        <td>John Trainer</td>
+                        <td>Disabled</td>
+                        <td><button>Edit</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript to show the Member List table when "MEMBER LIST" is clicked
+        const memberListLink = document.querySelector('.sidebar ul li a[href="#"]');
+        const memberListTable = document.getElementById('memberListTable');
+        const searchContainer = document.querySelector('.search-container');
+
+        memberListLink.addEventListener('click', function (e) {
+            e.preventDefault();
+            memberListTable.style.display = 'table';
+            searchContainer.style.display = 'flex';
+        });
+    </script>
+</body>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add New Type of Fitness Plan</title>
+</head>
+
+<body>
+<h1>Add New Type of Fitness Plan</h1>
+<form method="post" th:action="@{/api/fitnessPlanType/add_fitnessPlanType}" th:object="${fitnessPlanType}">
+  Id:<input type="number" th:field="*{id}"/><br/>
+  Name: <input type="text" th:field="*{name}"/><br/>
+  <input type="submit" value="add">
+</form>
+
+</body>
+</html>

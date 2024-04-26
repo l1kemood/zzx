@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>FITNESS PLAN INFORMATION</title>
+</head>
+<body>
+<div class="container">
+    <div th:if="${memberInfo != null and not #lists.isEmpty(memberInfo)}">
+        <form method="post" th:action="@{/api/fitnessPlanType/add_fitnessPlanType}" th:object="${fitnessPlanType}">
+            NAME:<text th:field="*{id}"/>
+            PLAN LEVEL:
+            CREATION TIME:
+            PERIOD OF VALIDITY:
+            CURRENT STATE:
+            REMAINING OPPORTUNITY:
+        </form>
+        <h1>NAME</h1>
+        <h2>PLAN LEVEL</h2>
+        <h3>CREATION TIME</h3>
+        <h4>PERIOD OF VALIDITY</h4>
+        <h5>CURRENT STATE</h5>
+        <h6>REMAINING OPPORTUNITY</h6>
+
+    </div>
+
+</div>
+</body>
+</html>
